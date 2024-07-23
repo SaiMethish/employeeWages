@@ -4,27 +4,39 @@ const employee={
     partTime:Math.random()>=0.5?1:0,
 };
 
+let wagePerHr,hrs;
 const checkAttendance=(id)=>{
-    if(id<5){
+    if(id>2){
         return "present";
 
     }
     return "absent";
 }
 
+const assignHrs=()=>{
+    switch(employee.partTime){
+        case 1:
+            hrs=4;
+            break;
+        default:
+            hrs=8;
+    }
+}
+
 const calculateWage=()=>{
-    let wagePerHr,hrs;
     wagePerHr=20;
     if(checkAttendance(employee.id)==="present"){
-        switch(employee.partTime){
-            case 1:
-                hrs=4;
-                break;
-            default:
-                hrs=8;
-        }
+        assignHrs();
         return wagePerHr*hrs;
     }
     return "employee is absent";
 }
-console.log(calculateWage());
+console.log("employee daily wage ="+calculateWage());
+
+const calculateMonthlyWage=()=>{
+    wagePerHr=20;
+    assignHrs();
+    let monthlyWage=20*(wagePerHr*hrs);
+    return monthlyWage;
+}
+console.log("employee monthly wage ="+calculateMonthlyWage());
