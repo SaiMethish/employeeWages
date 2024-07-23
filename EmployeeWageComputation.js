@@ -40,3 +40,13 @@ const calculateMonthlyWage=()=>{
     return monthlyWage;
 }
 console.log("employee monthly wage ="+calculateMonthlyWage());
+
+const calculateWageTillCondition=(duration)=>{
+    let total=0;
+    while(duration>0){
+        total+=wagePerHr;
+        duration--;
+    }
+    return total;
+}
+console.log("employee wage for 100hrs ="+calculateWageTillCondition(100));
