@@ -16,10 +16,13 @@ const calculateWage=()=>{
     let wagePerHr,hrs;
     wagePerHr=20;
     if(checkAttendance(employee.id)==="present"){
-        if(employee.partTime==1){
-            hrs=4;
+        switch(employee.partTime){
+            case 1:
+                hrs=4;
+                break;
+            default:
+                hrs=8;
         }
-        else hrs=8;
         return wagePerHr*hrs;
     }
     return "employee is absent";
