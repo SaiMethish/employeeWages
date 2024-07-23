@@ -5,8 +5,18 @@ const employee={
 
 const checkAttendance=(id)=>{
     if(id<5){
-        console.log("present");
+        return "present";
+
     }
-    else console.log("absent");
+    return "absent";
 }
-checkAttendance(employee.id);
+
+const calculateWage=()=>{
+    if(checkAttendance(employee.id)==="present"){
+        let wagePerHr=20;
+        let hrs=8;
+        return wagePerHr*hrs;
+    }
+    return "employee is absent";
+}
+console.log(calculateWage());
